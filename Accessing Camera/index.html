@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Camera</title>
+</head>
+<body>
+    <video id="VideoTag" autoplay>
+
+    </video>
+
+    <script>
+        let videoTag = document.getElementById('VideoTag')
+        navigator.mediaDevices.getUserMedia({ video:true })
+        .then(stream => {
+            videoTag.srcObject = stream;
+        })
+        .catch(error => {
+            alert("Unable to startup camera feed")
+            console.log("Error gotten", error)
+        })
+    </script>
+</body>
+</html>
